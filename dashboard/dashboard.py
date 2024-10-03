@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Membaca dataset
-data = pd.read_csv('data_clean.csv')
+script_dir = os.path.dirname(os.path.realpath(__file__))
+data = pd.read_csv(f"{script_dir}/data_clean.csv")
 
 # Mengelompokkan data berdasarkan tahun dan menghitung rata-rata, minimum, maksimum untuk NO2, SO2, PM2.5
 NO2_pollution = data.groupby('year')[['NO2']].agg(['mean', 'min', 'max'])
